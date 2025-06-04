@@ -6,4 +6,9 @@ import paths from 'vite-tsconfig-paths'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [paths(), react(), cloudflare()],
+  server: {
+    cors: {
+      origin: ["https://www.owlbear.rodeo"]
+    }
+  }
 })
