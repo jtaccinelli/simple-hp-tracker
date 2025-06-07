@@ -13,11 +13,13 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^7.1.1",
     "@mui/material": "^7.1.1",
     "@owlbear-rodeo/sdk": "^3.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "vite-tsconfig-paths": "^5.1.4"
+    "vite-tsconfig-paths": "^5.1.4",
+    "wouter": "^3.7.1"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.5.0",

@@ -13,14 +13,16 @@ export function Header({ subtitle, action }: Props) {
   return (
     <>
       <CardHeader
-        title="Initiative"
+        title="HP Tracker"
         action={action}
-        titleTypographyProps={{
-          sx: {
-            fontSize: "1.125rem",
-            fontWeight: "bold",
-            lineHeight: "32px",
-            color: "text.primary",
+        slotProps={{
+          title: {
+            sx: {
+              fontSize: "1.125rem",
+              fontWeight: "bold",
+              lineHeight: "32px",
+              color: "text.primary",
+            },
           },
         }}
       />
