@@ -1,15 +1,10 @@
 import { useEffect, useState, type ChangeEvent } from "react";
-import {
-  Checkbox,
-  Chip,
-  Input,
-  ListItem,
-  ListItemText,
-  Stack,
-} from "@mui/material";
+import { Checkbox, Input, ListItem, ListItemText, Stack } from "@mui/material";
 
 import type { TrackedItem } from "~/hooks/use-tracked-items";
 import { updatePointsCurrent, updatePointsTotal } from "~/lib/plugin";
+
+import { Status } from "./status";
 
 type Props = {
   item: TrackedItem;
@@ -59,13 +54,7 @@ export function TrackerItem({
       onClick={handleSelect}
       secondaryAction={
         isPlayerView ? (
-          item.isDowned ? (
-            <Chip color="default" label="Down" />
-          ) : item.isBloodied ? (
-            <Chip color="error" label="Bloodied" />
-          ) : (
-            <Chip color="primary" label="Active" variant="outlined" />
-          )
+          <Status item={item} />
         ) : (
           <Stack
             direction="row"
