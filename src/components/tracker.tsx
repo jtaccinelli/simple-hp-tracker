@@ -20,7 +20,7 @@ export function Tracker() {
 
   useEffect(() => {
     const itemCount = items?.length ?? 1;
-    const height = Math.max(52 * itemCount + 64, 128);
+    const height = Math.max(48 * itemCount + 90, 128);
     OBR.action.setHeight(height);
   }, [items]);
 

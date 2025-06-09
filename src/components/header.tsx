@@ -13,7 +13,7 @@ export function Header({ subtitle, action }: Props) {
   return (
     <>
       <CardHeader
-        title="HP Tracker"
+        title="Hit Points"
         action={action}
         slotProps={{
           title: {

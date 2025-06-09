@@ -1,5 +1,11 @@
 import { useEffect, useState, type ChangeEvent } from "react";
-import { Checkbox, Input, ListItem, ListItemText, Stack } from "@mui/material";
+import {
+  Input,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Stack,
+} from "@mui/material";
 
 import { updateHpCurrent, updateHpTotal } from "~/lib/hp";
 
@@ -51,24 +57,23 @@ export function TrackerItem({
 
   return (
     <ListItem
+      disablePadding
       divider
-      onClick={handleSelect}
       secondaryAction={
         isPlayerView ? (
           <Status item={item} />
         ) : (
           <Stack
             direction="row"
-            spacing={1}
-            sx={{ alignItems: "center", justifyContent: "end" }}
+            spacing={0.5}
+            alignItems="center"
+            justifyContent="end"
           >
             <Input
               value={pointsCurrent}
               onChange={handleCurrentUpdate}
               sx={{ width: 32 }}
-              inputProps={{
-                sx: { appearance: "none", margin: 0, textAlign: "center" },
-              }}
+              inputProps={{ sx: { textAlign: "center" } }}
               disableUnderline
             />
             <p>/</p>
@@ -76,34 +81,26 @@ export function TrackerItem({
               value={pointsTotal}
               onChange={handleTotalUpdate}
               sx={{ width: 32 }}
-              inputProps={{
-                sx: { appearance: "none", margin: 0, textAlign: "center" },
-              }}
+              inputProps={{ sx: { textAlign: "center" } }}
               disableUnderline
             />
           </Stack>
         )
       }
     >
-      {isPlayerView ? null : (
-        <Checkbox
-          size="small"
-          checked={isSelected}
-          disableRipple
-          edge="start"
+      <ListItemButton onClick={handleSelect} selected={isSelected}>
+        <ListItemText
+          sx={{
+            color: item.isDowned
+              ? "text.disabled"
+              : item.isBloodied
+                ? "error.light"
+                : "text.primary",
+            textDecoration: item.isDowned ? "line-through" : "",
+          }}
+          primary={item.name}
         />
-      )}
-      <ListItemText
-        sx={{
-          color: item.isDowned
-            ? "text.disabled"
-            : item.isBloodied
-              ? "error.light"
-              : "text.primary",
-          textDecoration: item.isDowned ? "line-through" : "",
-        }}
-        primary={item.name}
-      />
+      </ListItemButton>
     </ListItem>
   );
 }

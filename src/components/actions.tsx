@@ -1,8 +1,8 @@
 import { IconButton, Stack, Tooltip } from "@mui/material";
 
-import FlashOnIcon from "@mui/icons-material/FlashOn";
 import SpeedIcon from "@mui/icons-material/Speed";
-import HealingIcon from "@mui/icons-material/Healing";
+import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
+import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 
 import { useOBRModal } from "~/hooks/use-obr-modal";
 
@@ -33,12 +33,12 @@ export function Actions({ disabled }: Props) {
     <Stack direction="row" gap={1} alignItems="center" height="full">
       <Tooltip title="Damage">
         <IconButton size="small" onClick={damageModal.open} disabled={disabled}>
-          <FlashOnIcon />
+          <KeyboardDoubleArrowDownIcon />
         </IconButton>
       </Tooltip>
       <Tooltip title="Heal">
         <IconButton size="small" onClick={healModal.open} disabled={disabled}>
-          <HealingIcon />
+          <KeyboardDoubleArrowUpIcon />
         </IconButton>
       </Tooltip>
       <Tooltip title="Set Max HP">
