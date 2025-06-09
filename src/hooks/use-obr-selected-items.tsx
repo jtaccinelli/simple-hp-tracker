@@ -14,19 +14,20 @@ export function useOBRSelectedItems() {
   }, []);
 
   const selectId = useCallback((id: string) => {
-    const set = new Set(ids);
-    set.add(id);
-    OBR.player.select([...set]);
+    OBR.player.select([id], false);
   }, []);
 
   const deselectId = useCallback((id: string) => {
     OBR.player.deselect([id]);
   }, []);
 
-  const toggleId = useCallback((id: string) => {
-    if (ids?.includes(id)) deselectId(id);
-    else selectId(id);
-  }, []);
+  const toggleId = useCallback(
+    (id: string) => {
+      if (ids?.includes(id)) deselectId(id);
+      else selectId(id);
+    },
+    [ids]
+  );
 
   const actions = {
     select: selectId,

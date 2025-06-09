@@ -17,7 +17,7 @@ export function useOBRContextMenu() {
               { key: "layer", value: "CHARACTER", coordinator: "||" },
               { key: "layer", value: "MOUNT" },
               { key: "type", value: "IMAGE" },
-              { key: ["metadata", TARGET.HP], value: undefined },
+              { key: ["metadata", TARGET.HP_METADATA], value: undefined },
             ],
             permissions: ["UPDATE"],
           },
