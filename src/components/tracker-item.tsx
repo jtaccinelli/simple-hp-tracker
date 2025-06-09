@@ -1,13 +1,14 @@
 import { useEffect, useState, type ChangeEvent } from "react";
 import { Checkbox, Input, ListItem, ListItemText, Stack } from "@mui/material";
 
-import type { TrackedItem } from "~/hooks/use-tracked-items";
-import { updatePointsCurrent, updatePointsTotal } from "~/lib/plugin";
+import { updateHpCurrent, updateHpTotal } from "~/lib/hp";
+
+import type { MappedHpItem } from "~/hooks/use-hp-items";
 
 import { Status } from "./status";
 
 type Props = {
-  item: TrackedItem;
+  item: MappedHpItem;
   isPlayerView: boolean;
   onSelect: (id: string) => void;
   isSelected: boolean;
@@ -27,7 +28,7 @@ export function TrackerItem({
     const cappedValue = Math.min(value, pointsTotal);
 
     setPointsCurrent(cappedValue);
-    updatePointsCurrent([item.id], cappedValue);
+    updateHpCurrent([item.id], cappedValue);
   }
 
   function handleTotalUpdate(event: ChangeEvent<HTMLInputElement>) {
@@ -35,7 +36,7 @@ export function TrackerItem({
     const value = inputValue.length > 0 ? parseInt(inputValue) : 0;
 
     setPointsTotal(value);
-    updatePointsTotal([item.id], value);
+    updateHpTotal([item.id], value);
   }
 
   useEffect(() => {

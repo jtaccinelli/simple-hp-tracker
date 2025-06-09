@@ -4,13 +4,13 @@ export function isPlainObject(item: unknown): item is Record<any, unknown> {
   );
 }
 
-type Metadata = {
+export type HpMetadata = {
   isHit: boolean;
   pointsCurrent: number;
   pointsTotal: number;
 };
 
-export function isMetadata(metadata: unknown): metadata is Metadata {
+export function isHpMetadata(metadata: unknown): metadata is HpMetadata {
   return (
     isPlainObject(metadata) &&
     typeof metadata.isHit === "boolean" &&

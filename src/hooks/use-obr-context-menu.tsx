@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import OBR from "@owlbear-rodeo/sdk";
 
-import { initialisePoints } from "~/lib/plugin";
 import { TARGET } from "~/lib/const";
+import { initialiseHp } from "~/lib/hp";
 
 export function useOBRContextMenu() {
   useEffect(() => {
@@ -36,7 +36,7 @@ export function useOBRContextMenu() {
         },
       ],
       onClick(context) {
-        initialisePoints(context.items.map((item) => item.id));
+        initialiseHp(context.items.map((item) => item.id));
       },
     });
   }, []);

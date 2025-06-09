@@ -7,12 +7,12 @@ import HealingIcon from "@mui/icons-material/Healing";
 import { useOBRModal } from "~/hooks/use-obr-modal";
 
 type Props = {
-  ids: string[];
+  ids?: string[];
   disabled?: boolean;
 };
 
 export function Actions({ ids, disabled }: Props) {
-  function parseIds(ids: string[]) {
+  function parseIds(ids: string[] = []) {
     const params = new URLSearchParams();
     params.set("ids", ids.join(","));
     return params.toString();

@@ -1,8 +1,8 @@
 import { Chip } from "@mui/material";
-import type { TrackedItem } from "~/hooks/use-tracked-items";
+import type { MappedHpItem } from "~/hooks/use-hp-items";
 
 type Props = {
-  item: TrackedItem;
+  item: MappedHpItem;
 };
 
 export function Status({ item }: Props) {
