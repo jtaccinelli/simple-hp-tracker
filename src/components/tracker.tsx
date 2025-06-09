@@ -24,7 +24,7 @@ export function Tracker() {
     OBR.action.setHeight(height);
   }, [items]);
 
-  if (!items) {
+  if (!items?.length) {
     return <Header subtitle="Select a character to start tracking HP" />;
   }
 
@@ -33,10 +33,7 @@ export function Tracker() {
       <Header
         action={
           role === "PLAYER" ? null : (
-            <Actions
-              ids={selectedItemIds}
-              disabled={!selectedItemIds?.length}
-            />
+            <Actions disabled={!selectedItemIds?.length} />
           )
         }
       />

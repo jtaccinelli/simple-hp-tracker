@@ -7,31 +7,24 @@ import HealingIcon from "@mui/icons-material/Healing";
 import { useOBRModal } from "~/hooks/use-obr-modal";
 
 type Props = {
-  ids?: string[];
   disabled?: boolean;
 };
 
-export function Actions({ ids, disabled }: Props) {
-  function parseIds(ids: string[] = []) {
-    const params = new URLSearchParams();
-    params.set("ids", ids.join(","));
-    return params.toString();
-  }
-
+export function Actions({ disabled }: Props) {
   const damageModal = useOBRModal({
-    url: `/modal/damage?${parseIds(ids)}`,
+    url: `/modal/damage`,
     height: 197,
     width: 250,
   });
 
   const healModal = useOBRModal({
-    url: `/modal/heal?${parseIds(ids)}`,
+    url: `/modal/heal`,
     height: 197,
     width: 250,
   });
 
   const setMaxModal = useOBRModal({
-    url: `/modal/set-max?${parseIds(ids)}`,
+    url: `/modal/set-max`,
     height: 197,
     width: 250,
   });

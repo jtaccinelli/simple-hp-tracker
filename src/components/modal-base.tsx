@@ -6,8 +6,8 @@ import {
   TextField,
 } from "@mui/material";
 import OBR from "@owlbear-rodeo/sdk";
-import { useMemo, type FormEventHandler } from "react";
-import { useSearchParams } from "wouter";
+import { type FormEventHandler } from "react";
+import { useOBRSelectedItems } from "~/hooks/use-obr-selected-items";
 
 import { TARGET } from "~/lib/const";
 
@@ -17,12 +17,7 @@ type Props = {
 };
 
 export function ModalBase({ title, onAction }: Props) {
-  const [params] = useSearchParams();
-
-  const ids = useMemo(() => {
-    const ids = params.get("ids");
-    return ids ? ids.split(",") : [];
-  }, [params]);
+  const [selectedIds] = useOBRSelectedItems();
 
   const handleClose = () => {
     OBR.modal.close(TARGET.MODAL);
@@ -35,9 +30,10 @@ export function ModalBase({ title, onAction }: Props) {
     const data = new FormData(event.currentTarget);
     const _amount = data.get("amount");
     if (typeof _amount !== "string") return;
+    if (!selectedIds) return;
 
     const amount = _amount.length > 0 ? parseInt(_amount) : 0;
-    onAction(ids, amount);
+    onAction(selectedIds, amount);
     handleClose();
   };
 
