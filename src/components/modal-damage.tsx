@@ -1,8 +1,6 @@
 import { subtractPointsCurrent } from "~/lib/plugin";
-import { ModalUpdate } from "./modal-update";
+import { ModalBase } from "./modal-base";
 
 export function ModalDamage() {
-  return (
-    <ModalUpdate onAction={subtractPointsCurrent} title="Damage" cta="Damage" />
-  );
+  return <ModalBase onAction={subtractPointsCurrent} title="Damage" />;
 }

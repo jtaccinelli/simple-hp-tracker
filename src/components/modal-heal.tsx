@@ -1,6 +1,6 @@
 import { addPointsCurrent } from "~/lib/plugin";
-import { ModalUpdate } from "./modal-update";
+import { ModalBase } from "./modal-base";
 
 export function ModalHeal() {
-  return <ModalUpdate onAction={addPointsCurrent} title="Heal" cta="Heal" />;
+  return <ModalBase onAction={addPointsCurrent} title="Heal" />;
 }

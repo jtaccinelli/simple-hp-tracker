@@ -2,7 +2,7 @@ import OBR, { isImage, type Item } from "@owlbear-rodeo/sdk";
 import { useCallback, useEffect, useState } from "react";
 
 import { isMetadata } from "~/lib/predicates";
-import { PLUGIN_ID } from "~/lib/plugin";
+import { TARGET } from "~/lib/const";
 
 export type TrackedItem = {
   id: string;
@@ -21,7 +21,7 @@ export function useTrackedItems() {
     setItems(() => {
       return items.reduce((array, item) => {
         if (!isImage(item)) return array;
-        const metadata = item.metadata[PLUGIN_ID.METADATA];
+        const metadata = item.metadata[TARGET.HP];
         if (!isMetadata(metadata)) return array;
 
         const isBloodied = metadata.pointsCurrent / metadata.pointsTotal < 0.5;

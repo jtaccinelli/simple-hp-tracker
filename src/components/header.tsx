@@ -24,6 +24,11 @@ export function Header({ subtitle, action }: Props) {
               color: "text.primary",
             },
           },
+          action: {
+            sx: {
+              alignSelf: "center",
+            },
+          },
         }}
       />
       <Divider variant="middle" />

@@ -2,7 +2,7 @@ import type { Player } from "@owlbear-rodeo/sdk";
 import OBR from "@owlbear-rodeo/sdk";
 import { useCallback, useEffect, useState } from "react";
 
-export function usePlayerRole() {
+export function useOBRPlayerRole() {
   const [role, setRole] = useState<Player["role"]>("PLAYER");
 
   const updatePlayerRole = useCallback((player: Player) => {

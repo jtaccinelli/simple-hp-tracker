@@ -2,26 +2,21 @@ import { useEffect, useState } from "react";
 import OBR from "@owlbear-rodeo/sdk";
 import { Box, List, Stack } from "@mui/material";
 
-import { useContextMenu } from "~/hooks/use-context-menu";
+import { useOBRContextMenu } from "~/hooks/use-obr-context-menu";
 import { useTrackedItems } from "~/hooks/use-tracked-items";
-import { usePlayerRole } from "~/hooks/use-player-role";
+import { useOBRPlayerRole } from "~/hooks/use-obr-player-role";
 
 import { Header } from "./header";
 import { TrackerItem } from "./tracker-item";
-import { BulkEdit } from "./bulk-edit";
+import { Actions } from "./actions";
 
 export function Tracker() {
   const items = useTrackedItems();
-  const role = usePlayerRole();
+  const role = useOBRPlayerRole();
 
-  useContextMenu();
+  useOBRContextMenu();
 
   const [selectedItemIds, setSelectedItemIds] = useState<string[]>([]);
-
-  useEffect(() => {
-    if (role === "PLAYER") OBR.action.setWidth(320);
-    else OBR.action.setWidth(480);
-  }, []);
 
   useEffect(() => {
     const height = Math.max(52 * items.length + 64, 128);
@@ -43,10 +38,7 @@ export function Tracker() {
         subtitle={items.length ? "" : "Select a character to start tracking HP"}
         action={
           role === "PLAYER" ? null : (
-            <BulkEdit
-              ids={selectedItemIds}
-              disabled={!selectedItemIds.length}
-            />
+            <Actions ids={selectedItemIds} disabled={!selectedItemIds.length} />
           )
         }
       />

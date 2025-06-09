@@ -1,19 +1,15 @@
 import OBR, { type Item } from "@owlbear-rodeo/sdk";
 import { isMetadata } from "./predicates";
+import { config } from "~/config";
+import { TARGET } from "~/lib/const";
 
 export function generatePluginId(path: string) {
-  return `rodeo.jtaccinelli.hp-tracker/${path}`;
+  const id = config.id;
+  return `${id}/${path}`;
 }
 
-export const PLUGIN_ID = {
-  CONTEXT_MENU: generatePluginId("context-menu"),
-  METADATA: generatePluginId("metadata"),
-  MODAL: generatePluginId("modal"),
-  POPOVER: generatePluginId("popover"),
-} as const;
-
 export function getMetadataFromItem(item: Item) {
-  const metadata = item.metadata[PLUGIN_ID.METADATA];
+  const metadata = item.metadata[TARGET.HP];
   return isMetadata(metadata) ? metadata : undefined;
 }
 
@@ -25,13 +21,13 @@ export function initialisePoints(ids: string[]) {
 
     for (const item of items) {
       if (shouldInitialise) {
-        item.metadata[PLUGIN_ID.METADATA] = {
+        item.metadata[TARGET.HP] = {
           isHit: false,
           pointsCurrent: 10,
           pointsTotal: 10,
         };
       } else {
-        delete item.metadata[PLUGIN_ID.METADATA];
+        delete item.metadata[TARGET.HP];
       }
     }
   });

@@ -1,6 +1,6 @@
 import { Switch, Route } from "wouter";
 
-import { useSceneReady } from "~/hooks/use-scene-ready";
+import { useOBRSceneReady } from "~/hooks/use-obr-scene-ready";
 
 import { Header } from "./header";
 
@@ -8,15 +8,13 @@ import { ModalDamage } from "./modal-damage";
 import { ModalHeal } from "./modal-heal";
 import { ModalSetMax } from "./modal-set-max";
 
-import { PopoverBulkEdit } from "./popover-bulk-edit";
-
 import { Tracker } from "./tracker";
 
 export function App() {
-  const isSceneReady = useSceneReady();
+  const isSceneReady = useOBRSceneReady();
 
   if (!isSceneReady) {
-    return <Header subtitle="Open a scene to use the initiative tracker" />;
+    return <Header subtitle="Open a scene to use the HP tracker" />;
   }
 
   return (
@@ -30,10 +28,6 @@ export function App() {
       </Route>
       <Route path="/modal/set-max">
         <ModalSetMax />
-      </Route>
-      {/* Popovers */}
-      <Route path="/popover/bulk-edit">
-        <PopoverBulkEdit />
       </Route>
       {/* Main App */}
       <Route>

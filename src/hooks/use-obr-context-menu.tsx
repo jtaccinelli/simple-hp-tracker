@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import OBR from "@owlbear-rodeo/sdk";
 
-import { initialisePoints, PLUGIN_ID } from "~/lib/plugin";
+import { initialisePoints } from "~/lib/plugin";
+import { TARGET } from "~/lib/const";
 
-export function useContextMenu() {
+export function useOBRContextMenu() {
   useEffect(() => {
     OBR.contextMenu.create({
-      id: PLUGIN_ID.CONTEXT_MENU,
+      id: TARGET.CONTEXT_MENU,
       icons: [
         {
           icon: "/add.svg",
@@ -16,7 +17,7 @@ export function useContextMenu() {
               { key: "layer", value: "CHARACTER", coordinator: "||" },
               { key: "layer", value: "MOUNT" },
               { key: "type", value: "IMAGE" },
-              { key: ["metadata", PLUGIN_ID.METADATA], value: undefined },
+              { key: ["metadata", TARGET.HP], value: undefined },
             ],
             permissions: ["UPDATE"],
           },

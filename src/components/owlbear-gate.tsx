@@ -1,12 +1,12 @@
 import { type ReactNode } from "react";
 
-import { useOwlbearReady } from "~/hooks/use-owlbear-ready";
+import { useOBRReady } from "~/hooks/use-obr-ready";
 
 type Props = {
   children: ReactNode;
 };
 
 export function OwlbearGate({ children }: Props) {
-  const ready = useOwlbearReady();
+  const ready = useOBRReady();
   return ready ? children : null;
 }

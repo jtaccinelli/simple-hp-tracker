@@ -1,12 +1,6 @@
 import { updatePointsTotal } from "~/lib/plugin";
-import { ModalUpdate } from "./modal-update";
+import { ModalBase } from "./modal-base";
 
 export function ModalSetMax() {
-  return (
-    <ModalUpdate
-      onAction={updatePointsTotal}
-      title="Set Max HP"
-      cta="Set Max HP"
-    />
-  );
+  return <ModalBase onAction={updatePointsTotal} title="Set Max HP" />;
 }
