@@ -4,7 +4,7 @@
   "manifest_version": 1,
   "author": "Jordan Accinelli",
   "icon": "/logo.png",
-  "description": "A simple hit point tracker for your GM.",
+  "description": "A lightweight hit point tracker for your GM.",
   "action": {
     "title": "HP Tracker",
     "icon": "/icon.svg",

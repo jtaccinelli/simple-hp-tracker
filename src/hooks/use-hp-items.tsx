@@ -22,7 +22,8 @@ export function useHpItems() {
 
       return {
         id: item.id,
-        name: item.name,
+        // @ts-expect-error
+        name: item.text.plainText ?? item.name,
         pointsCurrent: metadata.pointsCurrent,
         pointsTotal: metadata.pointsTotal,
         isVisible: item.visible,
