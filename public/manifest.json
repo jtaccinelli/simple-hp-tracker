@@ -1,10 +1,10 @@
 {
-  "name": "HP Tracker",
+  "name": "Simple HP Tracker",
   "version": "1.0.0",
   "manifest_version": 1,
   "author": "Jordan Accinelli",
   "icon": "/logo.png",
-  "description": "A basic hit point tracker for your GM.",
+  "description": "A simple hit point tracker for your GM.",
   "action": {
     "title": "HP Tracker",
     "icon": "/icon.svg",
