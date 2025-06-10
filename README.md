@@ -1,4 +1,4 @@
-# HP Tracker
+# Simple HP Tracker
 
 A small extension for [Owlbear Rodeo](https://www.owlbear.rodeo/) which allows you to add health tracking to character tokens within a scene.
 
