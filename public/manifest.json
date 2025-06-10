@@ -7,7 +7,7 @@
   "description": "A lightweight hit point tracker for your GM.",
   "homepage_url": "https://github.com/jtaccinelli/simple-hp-tracker",
   "action": {
-    "title": "HP Tracker",
+    "title": "Health",
     "icon": "/icon.svg",
     "popover": "/",
     "height": 128,
