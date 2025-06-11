@@ -10,6 +10,10 @@ Go to **Profile > Extensions > Manage**, click on the Plus icon in the top right
 https://hp-tracker.jtaccinelli.workers.dev/manifest.json
 ```
 
+## How to use
+
+You can review how to use this extension in the [official docs](https://github.com/jtaccinelli/simple-hp-tracker/blob/main/docs/store.md).
+
 ## Further Reading
 
 - [Owlbear Extensions Marketplace](https://extensions.owlbear.rodeo/)
