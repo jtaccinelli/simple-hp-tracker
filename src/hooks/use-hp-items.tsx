@@ -18,7 +18,7 @@ export function useHpItems() {
     TARGET.HP_METADATA,
     (item, metadata) => {
       const isBloodied = metadata.pointsCurrent / metadata.pointsTotal < 0.5;
-      const isDowned = metadata.pointsCurrent == 0;
+      const isDowned = metadata.pointsCurrent <= 0;
 
       return {
         id: item.id,
