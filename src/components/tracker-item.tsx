@@ -55,6 +55,8 @@ export function TrackerItem({
     onSelect(item.id);
   }
 
+  if (isPlayerView && !item.isVisible) return null;
+
   return (
     <ListItem
       disablePadding
