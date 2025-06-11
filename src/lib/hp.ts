@@ -47,7 +47,8 @@ export function addHpCurrent(ids: string[], value: number) {
       const metadata = getHpMetadataFromItem(item);
       if (!metadata) continue;
       metadata.isHit = true;
-      metadata.pointsCurrent += value;
+      const newValue = metadata.pointsCurrent + value;
+      metadata.pointsCurrent = Math.min(metadata.pointsTotal, newValue);
     }
   });
 }
@@ -58,7 +59,8 @@ export function subtractHpCurrent(ids: string[], value: number) {
       const metadata = getHpMetadataFromItem(item);
       if (!metadata) continue;
       metadata.isHit = true;
-      metadata.pointsCurrent -= value;
+      const newValue = metadata.pointsCurrent - value;
+      metadata.pointsCurrent = Math.max(0, newValue);
     }
   });
 }
